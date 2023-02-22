@@ -1,35 +1,74 @@
 package com.bridgelabz;
 
-import org.junit.Test;
-
-import static junit.framework.Assert.assertEquals;
-import static org.junit.Assert.assertEquals;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
-    public void firstNameTest_ShouldReturnTrue() {
-        boolean value = UserRegistration.checkFirstName("Shraddha");
-        //test output
-        assertEquals(true, value);
+    static UserRegistration userRegistration;
+
+    @BeforeAll
+    public static void init() {
+        userRegistration = new UserRegistration();
     }
 
+    @Test
+    public void firstNmeShouldBeTrue() {
+        boolean value = userRegistration.checkFirstName("Shraddha");
+        Assertions.assertEquals(true, value);
+    }
+
+    @Test
+    public void firstNmeShouldBeFalse() {
+        boolean value = userRegistration.checkFirstName("Shraddha");
+        Assertions.assertEquals(false, value);
+    }
+
+    @Test
     public void lastNameTest2_ShouldReturnTrue() {
-        boolean value = UserRegistration.checkLastName("Ghadge");
-        assertEquals(true, value);
+        boolean value = userRegistration.checkLastName("Ghadge");
+        Assertions.assertEquals(true, value);
     }
 
+    @Test
+    public void lastNameTest2_ShouldReturnFalse() {
+        boolean value = userRegistration.checkLastName("Ghadge");
+        Assertions.assertEquals(false, value);
+    }
+
+    @Test
     public void emailTest3_ShouldReturnTrue() {
-        boolean value = UserRegistration.checkEmail("shraddhaghadge86@gmail.com");
-        assertEquals(true, value);
+        boolean value = userRegistration.checkEmail("shraddhaghadge86@gmail.com");
+        Assertions.assertEquals(true, value);
     }
 
+    @Test
+    public void emailTest3_ShouldReturnFalse() {
+        boolean value = userRegistration.checkEmail("shraddhaghadge86@gmail.com");
+        Assertions.assertEquals(false, value);
+    }
+
+    @Test
     public void numberTest4_ShouldReturnTrue() {
-        boolean value = UserRegistration.phoneNumber("91 8605512168");
-        assertEquals(true, value);
+        boolean value = userRegistration.phoneNumber("91 8605512168");
+        Assertions.assertEquals(true, value);
     }
 
+    @Test
+    public void numberTest4_ShouldReturnFalse() {
+        boolean value = userRegistration.phoneNumber("91 8605512168");
+        Assertions.assertEquals(false, value);
+    }
+
+    @Test
     public void passWordTest5_ShouldReturnTrue() {
-        boolean value = UserRegistration.passWord("Shraddha@123");
-        assertEquals(true, value);
+        boolean value = userRegistration.passWord("Shraddha@123");
+        Assertions.assertEquals(true, value);
+    }
+
+    @Test
+    public void passWordTest5_ShouldReturnFalse() {
+        boolean value = userRegistration.passWord("Shraddha@123");
+        Assertions.assertEquals(false, value);
     }
 }
